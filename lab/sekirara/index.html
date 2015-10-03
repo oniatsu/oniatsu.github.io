@@ -1,0 +1,180 @@
+---
+permalink: path
+permalink: /lab/sekirara/
+---
+<!DOCTYPE HTML>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="img/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="css/perfect-scrollbar-0.4.5.min.css" />
+  <link rel="stylesheet/less" type="text/css" href="css/style.less" />
+  <title>せきららはてブ</title>
+  
+  <meta property="og:title" content="せきららはてブ">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="はてブの脆弱性っぽい話">
+  <meta property="og:url" content="http://lab.oniatsu.com/sekirara/">
+  <meta property="og:image" content="img/pink_256.jpg">
+  <meta property="og:site_name" content="lab.oniatsu.com">
+
+  <script src="js/less-1.5.0.min.js" type="text/javascript"></script>
+  <script src="js/jquery-1.10.1.min.js" type="text/javascript"></script>
+  <script src="js/perfect-scrollbar-0.4.5.with-mousewheel.min.js" type="text/javascript"></script>
+  <!--<script src="js/main.js" type="text/javascript"></script>-->
+  <script src="js/google_analitics.js" type="text/javascript"></script>
+
+  <style>
+    .info {
+      color: #fff;
+      border: 5px solid #BD2C2C;
+      background: #2C6EBD;
+      padding: 30px;
+      font-size: 2.0em;
+    }
+  </style>
+</head>
+<body>
+  <div id="cointainer">
+
+    <div id="header">
+      <div class="wrapper">
+
+        <h1><a href="">せきらら はてブ</a></h1>
+        <p>はてブの脆弱性っぽい話</p>
+
+      </div><!-- /.wrapper -->
+    </div><!-- /#header -->
+
+
+    <div id="contents">
+      <div class="wrapper">
+
+        <div class="content-box">
+          <div class="info">
+            This page is outdated.
+          </div>
+        </div>
+
+        <div class="content-box">
+          <h2>あなたのはてなID</h2>
+          <!--<p id="your-hatena-id">あなたのはてなIDは…（数秒待ってください。。）</p>-->
+          <p id="your-hatena-id">停止中</p>
+        </div>
+
+        <div class="content-box">
+          <h2>あなたの非公開ブックマーク（の一部）</h2>
+
+          <div class="list-title">
+            comドメインの最近のブックマークとか
+          </div>
+          <div class="bookmark-list">
+            <div>
+              <div class="bookmark-list-inner" id="list-0">
+                <!--<p>探し中…</p>-->
+                <p>停止中</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="list-title">
+            ne.jpドメインの最近のブックマークとか
+          </div>
+          <div class="bookmark-list">
+            <div>
+              <div class="bookmark-list-inner" id="list-1">
+                <!--<p>探し中…</p>-->
+                <p>停止中</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="list-title">
+            co.jpドメインの最近のブックマークとか
+          </div>
+          <div class="bookmark-list">
+            <div>
+              <div class="bookmark-list-inner" id="list-2">
+                <!--<p>探し中…</p>-->
+                <p>停止中</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="content-box">
+          <h2>説明</h2>
+
+          <div class="dialog">
+            <div class="talk clearfix">
+              <img src="img/pink_64.png" alt="" />
+              <p>このページはなに？</p>
+            </div>
+            <div class="talk clearfix">
+              <img src="img/black_64.png" alt="" />
+              <p>あなたのはてなIDとあなたの非公開はてなブックマークをもぞもぞと取得して表示させるページです。</p>
+              <p>はてなIDを持っていて、はてなブックマークにログインしている必要があります。</p>
+            </div>
+          </div>
+
+          <div class="dialog">
+            <div class="talk clearfix">
+              <img src="img/pink_64.png" alt="" />
+              <p>どうやってはてなIDを取ってるの？</p>
+              <p>どうやって非公開ブクマを取ってるの？</p>
+            </div>
+            <div class="talk clearfix">
+              <img src="img/black_64.png" alt="" />
+              <p>まず知ることは、はてなの Web API は my というキーワードが自身のユーザーIDのエイリアスになっていることです。これを利用し、ページを訪れた人の<a href="http://developer.hatena.ne.jp/ja/documents/bookmark/apis/fulltext_search" target="_blank">マイブックマーク全文検索API</a>を Cookie 認証で叩きます。ここで得られたブックマークのうち、一つの公開ブックマークの URL とタイムスタンプを覚えておきましょう。</p>
+              <p>次に、その取得した公開ブックマークの URL を使って、<a href="http://developer.hatena.ne.jp/ja/documents/bookmark/apis/getinfo" target="_blank">はてなブックマークエントリー情報取得API</a>を叩きます。返ってくるのは、その URL にブックマークした人の一覧です。</p>
+              <p>ここで得られたエントリーブックマークのユーザーID付きタイムスタンプと、先に得られたマイブックマークのタイムスタンプを照合することで、マイブックマークのユーザーIDを導けます。これによって、ページにアクセスした人のはてなIDを決定できました。</p>
+              <p>非公開ブックマークの方は、先の<a href="http://developer.hatena.ne.jp/ja/documents/bookmark/apis/fulltext_search" target="_blank">マイブックマーク全文検索API</a>を my エイリアスを使って Cookie 認証で叩くことで取得できます。</p>
+            </div>
+          </div>
+
+          <div class="dialog">
+            <div class="talk clearfix">
+              <img src="img/pink_64.png" alt="" />
+              <p>つまり？</p>
+            </div>
+            <div class="talk clearfix">
+              <img src="img/black_64.png" alt="" />
+              <p>ページにアクセスした人のはてなIDを決定でき、なおかつそのはてなIDと結びついた非公開ブックマークを取得できてしまいました。非公開ブックマークってなんでしたっけ。</p>
+              <p>はてなブックマークのことは好きですが、この仕様にはちょっとびくびくですね。</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div><!-- /.wrapper -->
+    </div><!-- /#contents -->
+
+    <div id="afterword">
+      <div class="wrapper">
+
+          <div class="dialog">
+            <div class="talk clearfix">
+              <img src="img/black_64.png" alt="" />
+              <p>ブックマークの取得について。</p>
+              <p><a href="http://developer.hatena.ne.jp/ja/documents/bookmark/apis/fulltext_search" target="_blank">マイブックマーク全文検索API</a>は query が必須かつ一度での取得件数の上限もあるため、全てのブックマークを一括で取得することはできません。また、検索の仕様がよく分かりませんでした。URL も検索対象なのですが、http で検索しても全ブックマークが返ってくる対象になるわけでもないようです。そのためこのページでは例として、com, ne.jp, co.jp の3つを query として叩いています。jp を query にしても期待したような結果が得られませんでした。また、同じ URL を叩いてもレスポンスが異なる場合もあり結果に揺れがあるようです。とは言え、今回は通信回数を抑えていますがより多く API を叩けば非公開ブックマークをその分引っ張ってくることができるでしょう。</p>
+              <p>このページで取得したはてなIDなどは外部へ飛ばしていないことも添えておきます。</p>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /.wrapper -->
+    </div><!-- /#afterword -->
+
+    <div id="footer">
+      <div class="wrapper">
+
+        <address>&copy; <a href="http://oniatsu.com">oniatsu</a></address>
+
+      </div><!-- /.wrapper -->
+    </div><!-- /#footer -->
+
+  </div><!-- /#container -->
+</body>
+</html>

@@ -1,0 +1,151 @@
+
+@import url(http://fonts.googleapis.com/css?family=Lobster+Two:700,700italic,400italic,400);
+
+@bfs: 14px; // basic font size
+
+body {
+  font-size: @bfs;
+  //font-family: "Helvetica", "Arial", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-family: 'Lobster Two', cursive;
+  color: #303030;
+  line-height: 1.5em;
+}
+
+html {
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#container {
+}
+
+.wrapper {
+  width: 940px;
+  margin: 0 auto;
+}
+
+.content-box {
+  margin: 60px 0;
+}
+
+/* ============================= */
+
+#header {
+  padding: 100px 0 50px;
+  text-align: center;
+
+  h1 {
+    display: none;
+  }
+
+  img {
+    //border: 1px solid #fff;
+    border-top: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 1px 1px 5px #000;  
+  }
+}
+
+/* ============================= */
+
+#contents {
+  .left-content {
+    width: 50%;
+    height: 100px;
+    text-align: right;
+    float: left;
+  }
+
+  .right-content {
+    width: 50%;
+    height: 100px;
+    text-align: left;
+    float: left;
+  }
+
+  p {
+    font-size: (@bfs * 1.7);
+    font-style: italic;
+    padding: 2px 10px;
+
+    color: #000;
+    font-weight: bold;
+    text-shadow: 2px 2px 1px #fff, -2px 2px 1px #fff, 2px -2px 1px #fff, -2px -2px 1px #fff;
+  }
+}
+
+/* ============================= */
+
+#footer {
+  display: none;
+
+  background-color: #424242;
+  height: 50px;
+  color: #fff;
+  text-align: center;
+
+  address {
+    font-style: normal;
+    font-size: 1.2em;
+    padding-top: 10px;
+  }
+
+  a {
+    color:#fff;
+  }
+}
+
+/* ============================= */
+
+.clearfix:after {  
+  content: ".";   
+  display: block;   
+  height: 0;   
+  clear: both;   
+  visibility: hidden;  
+}  
+  
+.clearfix { display: inline-table; }  
+  
+/* Hides from IE-mac \*/  
+* html .clearfix { height: 1%; }  
+.clearfix { display: block; }  
+/* End hide from IE-mac */  
+
+
+@link-blue: #2d6bc4;
+
+a {
+  color: @link-blue;
+  font-weight: bold;
+  //font-style: normal;
+  text-decoration: none;
+}
+a:link {
+  color: @link-blue;
+  font-weight: bold;
+  //font-style: normal;
+  text-decoration: none;
+}
+a:visited {
+  color: @link-blue;
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  color: @link-blue;
+  font-weight: bold;
+  //font-style: normal;
+  text-decoration: underline;
+}
+a:active {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+
+
+
