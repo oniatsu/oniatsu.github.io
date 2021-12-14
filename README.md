@@ -1,4 +1,4 @@
 # oniatsu.github.com
 
-http://oniatsu.github.io/ is oniatsu's profile page.
+https://oniatsu.github.io/ is oniatsu's profile page.
 
